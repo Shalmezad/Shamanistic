@@ -30,6 +30,7 @@ var Game = {
   ctx: null,
   width: null,
   height: null,
+  tSize: 20,
   mouseIsDown: false,
   init: function() {
     Game.ctx = Game.canvas.getContext('2d');
@@ -51,6 +52,19 @@ var Game = {
   drawBackground: function() {
     Game.ctx.fillStyle="#222222";
     Game.ctx.fillRect(0,0,Game.width,Game.height);
+    dX = Game.width / Game.tSize;
+    dY = Game.height / Game.tSize;
+    Game.ctx.fillStyle="#333333";
+    for(i=0; i<dX; i++)
+    {
+      for(j=0; j<dY; j++)
+      {
+        if((i+j)%2==1)
+        {
+          Game.ctx.fillRect(i * Game.tSize, j * Game.tSize,Game.tSize, Game.tSize); 
+        }
+      } 
+    }
   },
   update: function() {
     requestAnimFrame(Game.update);
