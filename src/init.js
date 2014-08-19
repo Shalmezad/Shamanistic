@@ -1,3 +1,4 @@
+
 var Player = {
   s: 20,
   t: 5,
@@ -7,20 +8,20 @@ var Player = {
   destY: 20,
   draw: function(ctx)
   {
-    diffX = Player.destX - Player.x;
-    diffY = Player.destY - Player.y;
+    diffX = this.destX - this.x;
+    diffY = this.destY - this.y;
     if(diffX > 1) diffX = 1;
     if(diffX < -1) diffX = -1;
     if(diffY > 1) diffY = 1;
     if(diffY < -1) diffY = -1;
-    Player.x += diffX;
-    Player.y += diffY;
+    this.x += diffX;
+    this.y += diffY;
     //Draw seeker
     ctx.fillStyle="#dd0000";
-    ctx.fillRect(Player.destX, Player.destY, Player.t,Player.t);
+    ctx.fillRect(this.destX, this.destY, this.t,this.t);
     //Draw player
     ctx.fillStyle="#ffff33";
-    ctx.fillRect(Player.x,Player.y,Player.s,Player.s);
+    ctx.fillRect(this.x,this.y,this.s,this.s);
   }
 };
 
